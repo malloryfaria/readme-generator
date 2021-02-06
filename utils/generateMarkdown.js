@@ -106,7 +106,7 @@ ${renderTestSection(data.tests)} <br />
 ## Questions?
 
 If you have any questions about the project, contact me at: 
-(mailto:${data.email}) <br />
+${data.email} <br />
 Check out the rest of my work at: 
 [${data.github}](https://github.com/${
     data.github

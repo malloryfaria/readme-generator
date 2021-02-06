@@ -44,7 +44,7 @@ https://github.com/malloryfaria/readme-generator <br />
 JavaScript,Node <br />
 
 ## Screenshot
-![README Generator](./assets/images/screenshot.jpg?raw=true) <br /> 
+![README Generator](https://github.com/malloryfaria/readme-generator/blob/main/assets/images/screenshot.jpg?raw=true) <br /> 
 
 ## License
 
