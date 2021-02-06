@@ -34,9 +34,9 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   return `
   
-# ${data.title} 
+# ${data.title}  <br />
 
-${renderLicenseBadge(data.license)}
+${renderLicenseBadge(data.license)} <br />
 
 ## Table of Contents 
 
@@ -51,49 +51,56 @@ ${renderLicenseBadge(data.license)}
 - [Tests](#tests)
 - [Questions](#questions)
 
+<br />
+<br />
+
 ## Description
 
-${data.description}
+${data.description} <br />
 
 ## Installation
 
 \`\`\`
 ${data.installation}
 \`\`\`
+<br />
 
 ## Usage
 
-${data.usage}
+${data.usage} <br />
 
 ## Deployed application link
 
-${data.deployed}
+${data.deployed} <br />
 
 ## Languages/Technology Used
 
-${data.languages}
+${data.languages} <br />
 
 ## Screenshot
-![${data.title}](${data.screenshot}?raw=true)
+![${data.title}](${data.screenshot}?raw=true) <br /> 
 
-${renderLicenseSection(data.license)}
+${renderLicenseSection(data.license)} <br />
   
 ## Contributing
 
-${data.contributing}
+${data.contributing} <br />
 
 ## Tests
 
 \`\`\`
 ${data.test}
 \`\`\`
+<br />
 
 ## Questions?
 
-If you have any questions about the project, contact me at: (mailto:${data.email})
-Check out the rest of my work at: [${data.github}](https://github.com/${
+If you have any questions about the project, contact me at: 
+(mailto:${data.email}) <br />
+Check out the rest of my work at: 
+[${data.github}](https://github.com/${
     data.github
-  }/)
+  }/) <br />
 `;
 }
 

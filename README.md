@@ -40,7 +40,7 @@ https://github.com/malloryfaria/readme-generator
 JavaScript, Node, Inquirer
 
 ## Screenshot
-![ReadMe Generator Command Line](./assets/images/screenshot.jpg?raw=true)
+![ReadMe Generator Command Line](./assets/images/screenshot.jpg?raw=true) <br /><br />
 ![Generated README File Example](./assets/images/screenshot2.jpg?raw=true)
 
 ## License
@@ -49,13 +49,6 @@ JavaScript, Node, Inquirer
   
 ## Contributing
 If you would like to contribute, please reach out to me. You can find my contact information in the  "Questions?" section below.
-
-
-## Tests
-
-```
-N/A
-```
 
 ## Questions?
 
