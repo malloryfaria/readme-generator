@@ -1,11 +1,12 @@
 // Packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
+const generateMarkdown = require("./utils/generateMarkdown.js");
 
 
-
-// Array of questions for user input
-const questions = [
+// Array of questions for user input and inquirer prompt
+const promptUser = () => {
+    return inquirer.prompt([
     {
         // User's GitHub Name
         type: "input",
@@ -27,12 +28,6 @@ const questions = [
         message: "Enter your email address where you can be reached for questions"
     },
     {
-        // Deployed application link
-        type: "input",
-        name: "projectLink",
-        message: "Enter the deployed application link"
-    },
-    {
         // Title of the project
         type: "input",
         name: "title",
@@ -45,6 +40,24 @@ const questions = [
             return false;
           };
         } 
+    },
+    {
+        // Installation information
+        type: "input",
+        name: "installation",
+        message: "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running."
+    },
+    {
+        // Usage information
+        type: "input",
+        name: "usage",
+        message: "Provide instructions and examples for use."
+    },
+    {
+        // Deployed application link
+        type: "input",
+        name: "deployed",
+        message: "Enter the deployed application link"
     },
     {
         // Description of the project
@@ -61,24 +74,18 @@ const questions = [
         }
     },
     {
-        // Installation information
-        type: "input",
-        name: "installation",
-        message: "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running."
-    },
-    {
-        // Usage information
-        type: "input",
-        name: "usage",
-        message: "Provide instructions and examples for use."
-    },
-    {
         // What coding languages did you use?
         type: "checkbox",
         name: "languages",
         message: "What languages did you use for this project? (Check all that apply)",
         choices: ["JavaScript", "HTML", "CSS", "jQuery", "Bootstrap", "Node"]
       },
+    {
+        // Screenshot
+        type: "input",
+        name: "screenshot",
+        message: "Enter the URL to your application/webpage screenshot"
+    },
     {
         // Licensing information
         type: "list",
@@ -99,12 +106,17 @@ const questions = [
         message: "If you wrote tests for your application, explain how to run them. If not, enter 'N/A'"
     },
 
-];
+])
+.catch(err => {
+    console.log(err);
+  })};
+
+
 
 // Function to write README file
 function writeToFile(fileName, data) {
         return new Promise((resolve, reject) => {
-          fs.writeFile("./dist/readme.md", fileName, err => {
+          fs.writeFile("./dist/README.md", fileName, data, err => {
             if (err) {
               reject(err);
               return;
@@ -120,9 +132,9 @@ function writeToFile(fileName, data) {
 
 // Function to initialize the application
 function init() {
-        inquirer.prompt(questions).then(inquirerResponses => {
-
-        })
+    promptUser().then(inquirerResponses => {
+       writeToFile("./dist/README.md", generateMarkdown({ ...inquirerResponses }));
+    })
 };
 
 // Function call to initialize app
