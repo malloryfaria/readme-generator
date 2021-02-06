@@ -114,6 +114,7 @@ function writeToFile(fileName, data) {
 // Function to initialize the application
 function init() {
     inquirer.prompt(questions).then(inquirerResponses => {
+        console.log("Your README file is now being generated. You will find the completed file in the 'dist' folder.")
        writeToFile("./dist/README.md", generateMarkdown({ ...inquirerResponses }));
     })
 };
