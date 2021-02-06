@@ -108,6 +108,7 @@ const questions = [
 
 // Function to write README file
 function writeToFile(fileName, data) {
+    // Uses the node path module & process.cwd function to join the current working directory to the file name passed to it from the init function
     return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 };
 
@@ -115,7 +116,7 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions).then(inquirerResponses => {
         console.log("Your README file is now being generated. You will find the completed file in the 'dist' folder.")
-       writeToFile("./dist/README.md", generateMarkdown({ ...inquirerResponses }));
+       writeToFile("/dist/README.md", generateMarkdown({ ...inquirerResponses }));
     })
 };
 
