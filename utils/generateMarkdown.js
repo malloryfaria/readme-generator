@@ -30,6 +30,21 @@ function renderLicenseSection(license) {
   This project is licensed under the ${license} license.`;
 }
 
+// Function that returns the test section of README if it's not blank
+
+function renderTestSection(tests) {
+  // If there is no license, return an empty string
+  if (!tests) {
+    return "";
+  } // Else, display the Test section in the ReadMe
+  return `## Tests
+
+  \`\`\`
+  ${tests}
+  \`\`\`
+  <br />`
+}
+
 // Function to generate markdown for README
 function generateMarkdown(data) {
   return `
@@ -86,12 +101,7 @@ ${renderLicenseSection(data.license)} <br />
 
 ${data.contributing} <br />
 
-## Tests
-
-\`\`\`
-${data.test}
-\`\`\`
-<br />
+${renderTestSection(data.tests)} <br />
 
 ## Questions?
 

@@ -102,7 +102,7 @@ const questions = [
         // Tests
         type: "input",
         name: "tests",
-        message: "If you wrote tests for your application, explain how to run them. If not, enter 'N/A'"
+        message: "If you wrote tests for your application, explain how to run them. If not, leave this blank."
     },
 ];
 
