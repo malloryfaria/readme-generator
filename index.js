@@ -41,6 +41,20 @@ const questions = [
         } 
     },
     {
+        // Description of the project
+        type: "input",
+        name: "description",
+        message: "Provide a description of the project (Required)",
+        validate: descriptionInput => {
+          if (descriptionInput) {
+            return true;
+          } else {
+            console.log("You need to enter a project description!");
+            return false;
+          };
+        }
+    },
+    {
         // Installation information
         type: "input",
         name: "installation",
@@ -57,20 +71,6 @@ const questions = [
         type: "input",
         name: "deployed",
         message: "Enter the deployed application link"
-    },
-    {
-        // Description of the project
-        type: "input",
-        name: "description",
-        message: "Provide a description of the project (Required)",
-        validate: descriptionInput => {
-          if (descriptionInput) {
-            return true;
-          } else {
-            console.log("You need to enter a project description!");
-            return false;
-          };
-        }
     },
     {
         // What coding languages did you use?
