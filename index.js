@@ -1,12 +1,11 @@
 // Packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
-const generateMarkdown = require("./utils/generateMarkdown.js");
+const path = require("path");
+const generateMarkdown = require("./utils/generateMarkdown");
 
-
-// Array of questions for user input and inquirer prompt
-const promptUser = () => {
-    return inquirer.prompt([
+// Array of questions for user input
+const questions = [
     {
         // User's GitHub Name
         type: "input",
@@ -105,34 +104,16 @@ const promptUser = () => {
         name: "tests",
         message: "If you wrote tests for your application, explain how to run them. If not, enter 'N/A'"
     },
-
-])
-.catch(err => {
-    console.log(err);
-  })};
-
-
+];
 
 // Function to write README file
 function writeToFile(fileName, data) {
-        return new Promise((resolve, reject) => {
-          fs.writeFile("./dist/README.md", fileName, data, err => {
-            if (err) {
-              reject(err);
-              return;
-            }
-      
-            resolve({
-              ok: true,
-              message: "ReadMe file created! Check the dist folder to see it."
-            });
-          });
-        });
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 };
 
 // Function to initialize the application
 function init() {
-    promptUser().then(inquirerResponses => {
+    inquirer.prompt(questions).then(inquirerResponses => {
        writeToFile("./dist/README.md", generateMarkdown({ ...inquirerResponses }));
     })
 };
