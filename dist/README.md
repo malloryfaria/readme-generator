@@ -64,6 +64,6 @@ If you would like to contribute, please reach out to me. You can find my contact
 ## Questions?
 
 If you have any questions about the project, contact me at: 
-(mailto:mallory.faria@gmail.com) <br />
+mallory.faria@gmail.com <br />
 Check out the rest of my work at: 
 [malloryfaria](https://github.com/malloryfaria/) <br />
